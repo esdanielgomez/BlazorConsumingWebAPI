@@ -1,0 +1,59 @@
+﻿@page "/adduser"
+
+@using BlazorApp.BL.Services
+@using BlazorApp.BL.Models
+@inject UserService userService
+@inject NavigationManager NavigationManager
+
+<h1>Add User</h1>
+
+<p>In this section you can display the users who have been registered in the system.</p>
+
+<EditForm Model="@User">
+    <table class="table">
+        <tr>
+            <td>FirstName: </td>
+            <td><input type="text" @bind="User.FirstName" /></td>
+        </tr>
+        <tr>
+            <td>LastName: </td>
+            <td><input type="text" @bind="User.LastName" /></td>
+        </tr>
+        <tr>
+            <td>Username: </td>
+            <td><input type="text" @bind="User.Username" /></td>
+        </tr>
+        <tr>
+            <td>Password: </td>
+            <td><input type="password" @bind="User.Password" /></td>
+        </tr>
+        <tr>
+            <td>EnrrollmentDate: </td>
+            <td><input type="datetime" @bind="User.EnrollmentDate" /></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align:center">
+                <input type="submit" value="Save" @onclick="SaveUser" />
+                <input type="submit" value="Cancel" @onclick="CancelUser" />
+            </td>
+        </tr>
+    </table>
+</EditForm>
+
+@code {
+
+    UserDetailModel User { get; set; } = new UserDetailModel() { EnrollmentDate = DateTime.UtcNow.Date };
+
+    protected async Task SaveUser()
+    {
+        await userService.InsertUserAsync(this.User);
+        NavigationManager.NavigateTo("/listusers");
+    }
+
+    protected void CancelUser()
+    {
+        NavigationManager.NavigateTo("/listusers");
+    }
+
+
+}

@@ -1,0 +1,67 @@
+﻿@page "/detailuser"
+@page "/detailuser/{Id:int}"
+
+@using BlazorApp.BL.Services
+@using BlazorApp.BL.Models
+@inject UserService userService
+@inject NavigationManager NavigationManager
+
+<h1>User Detail</h1>
+
+<p>In this section you can display the users who have been registered in the system.</p>
+
+<EditForm Model="@User">
+    <table class="table">
+        <tr>
+            <td>FirstName: </td>
+            <td><input type="text" @bind="User.FirstName" /></td>
+        </tr>
+        <tr>
+            <td>LastName: </td>
+            <td><input type="text" @bind="User.LastName" /></td>
+        </tr>
+        <tr>
+            <td>Password: </td>
+            <td><input type="password" @bind="User.Password" /></td>
+        </tr>
+        <tr>
+            <td>EnrrollmentDate: </td>
+            <td><input type="datetime" @bind="User.EnrollmentDate" /></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align:center">
+                <input type="submit" value="Update" @onclick="SaveUser" />
+                <input type="submit" value="Delete" @onclick="DeleteUser" />
+                <input type="submit" value="Cancel" @onclick="CancelUser" />
+            </td>
+        </tr>
+    </table>
+</EditForm>
+
+@code {
+
+    [Parameter]
+    public int Id { get; set; }
+
+    UserDetailModel User { get; set; } = new UserDetailModel();
+
+    protected async Task SaveUser() {
+        await userService.UpdateUserAsync(this.User);
+        NavigationManager.NavigateTo("/listusers");
+    }
+
+    protected async Task DeleteUser()
+    {
+        await userService.DeleteUserAsync(User.Id);
+        NavigationManager.NavigateTo("/listusers");
+    }
+
+    protected void CancelUser() {
+        NavigationManager.NavigateTo("/listusers");
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        User = await userService.GetUserByIdAsync(Id);
+    }
+}

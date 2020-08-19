@@ -1,0 +1,45 @@
+﻿@page "/listusers"
+
+@using BlazorApp.BL.Services
+@using BlazorApp.BL.Models
+@inject UserService userService
+
+<h1>User List</h1>
+
+<p>In this section you can display the users who have been registered in the system.</p>
+
+@if (Users == null)
+{
+    <p><em>Loading... </em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>FirstName</th>
+                <th>LastNam</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Users)
+            {
+                <tr>
+                    <td>@user.FirstName</td>
+                    <td>@user.LastName</td>
+                    <td><a href="/detailuser/@user.Id"><i>Detail</i></a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+
+    public List<UserListModel> Users { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Users = await userService.GetAllUsersAsync();
+    }
+}
