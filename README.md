@@ -1,6 +1,8 @@
 # Consuming Web API in Blazor with ASP.NET Core
 
-DotVVM is a ASP.NET framework that allows us to create web applications using the MVVM (Model-View-Viewmodel) design pattern with C# and HTML. In this repository, we can find the source code of an application that consumes Web API services for handling user data.
+Blazor is a framework on ASP.NET for building SPA (Single Page Application) applications with C# and HTML. In this repository, we can find the source code of an application that consumes Web API services for handling user data.
+
+The project that contains the Web API implementation is located at this repository: [ASP.NET_WebAPI](https://github.com/esdanielgomez/ASP.NET_WebAPI).
 
 ## Main page screenshot 
 
