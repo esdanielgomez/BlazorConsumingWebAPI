@@ -6,11 +6,13 @@ The project that contains the Web API implementation is located at this reposito
 
 ## Main page screenshot 
 
-![](https://res.cloudinary.com/practicaldev/image/fetch/s--3scgJ9Jy--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/78lur27swt44ytqehfys.png)
+![](https://i.ibb.co/C5CKWrY/App.png)
 
-## Tutorial:
+## Video and Tutorial:
 
-[Working with web services through ASP.NET Core and DotVVM (A step by step guide)](https://dev.to/dotvvm/working-with-web-services-through-asp-net-core-and-dotvvm-a-step-by-step-guide-2le).
+Tutorial: [Working with web services through ASP.NET Core and DotVVM (A step by step guide)](https://dev.to/dotvvm/working-with-web-services-through-asp-net-core-and-dotvvm-a-step-by-step-guide-2le).
+
+Video in Spanish (Consuming Web API in Blazor): [ASP.NET Core & Blazor: Operaciones CRUD a través del consumo de una Web API](https://youtu.be/hYJSgtIjytc).
 
 ## Autor
 
