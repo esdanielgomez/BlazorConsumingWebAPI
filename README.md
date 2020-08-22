@@ -8,7 +8,7 @@ The project that contains the Web API implementation is located at this reposito
 
 ![](https://i.ibb.co/C5CKWrY/App.png)
 
-## Video and Tutorial:
+## Video and tutorial:
 
 Tutorial: [Working with web services through ASP.NET Core and DotVVM (A step by step guide)](https://dev.to/dotvvm/working-with-web-services-through-asp-net-core-and-dotvvm-a-step-by-step-guide-2le).
 
